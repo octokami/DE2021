@@ -17,7 +17,7 @@ services:
     ports:
       - "5001:5000"
     volumes:
-      - "/home/indika_kuma/models:/usr/src/myapp/models"
+      - "/home/camila_matoba/models:/usr/src/myapp/models"
   prediction_service:
     build:
       context: ./../../lab3/prediction-cp
@@ -26,4 +26,4 @@ services:
     ports:
       - "5002:5000"
     volumes:
-      - "/home/indika_kuma/models:/usr/src/myapp/models"
+      - "/home/camila_matoba/models:/usr/src/myapp/models"
