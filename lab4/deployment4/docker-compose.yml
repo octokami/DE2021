@@ -1,7 +1,7 @@
 version: '3.8'
 services:
   trainingdb_service:
-    image: indikakumara/trainingdbapi:0.0.1
+    image: octokami/trainingdbapi:0.0.1
     environment:
       - DB_URL=sqlite:///features.db
     networks:
@@ -9,7 +9,7 @@ services:
     ports:
       - "5000:5000"
   training_service:
-    image: indikakumara/trainapi-gcs:0.0.1
+    image: octokami/trainapi-gcs:0.0.1
     depends_on:
       - trainingdb_service
     environment:
@@ -21,7 +21,7 @@ services:
     ports:
       - "5001:5000"
   prediction_service:
-    image: indikakumara/predictionapi-gcs:0.0.1
+    image: octokami/predictionapi-gcs:0.0.1
     depends_on:
       - training_service
     environment:
