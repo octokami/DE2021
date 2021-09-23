@@ -15,7 +15,7 @@ services:
     environment:
       - TRAININGDB_API=http://trainingdb_service:5000/training-db/diabetes
       - MODEL_REPO=model_repo_de2021
-      - PROJECT_ID=yourprojectidhere
+      - PROJECT_ID=skilled-module-324608
     networks:
       - training-pipeline
     ports:
@@ -26,7 +26,7 @@ services:
       - training_service
     environment:
       - MODEL_REPO=model_repo_de2021
-      - PROJECT_ID=yourprojectidhere
+      - PROJECT_ID=skilled-module-324608
     networks:
       - prediction-pipeline
     ports:
