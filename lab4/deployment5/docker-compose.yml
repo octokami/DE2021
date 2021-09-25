@@ -1,0 +1,61 @@
+version: '3.8'
+services:
+  trainingdb_service:
+    image: indikakumara/trainingdbapi-postgres:0.0.1
+    environment:
+      - DB_URL=postgresql://testuser:testpass@pgdb_server:5432/features
+    depends_on:
+      - pgdb_server
+    networks:
+      - training-pipeline
+    ports:
+      - "5000:5000"
+  training_service:
+    image: indikakumara/trainapi:0.0.1
+    depends_on:
+      - trainingdb_service
+    environment:
+      - TRAININGDB_API=http://trainingdb_service:5000/training-db/diabetes
+    networks:
+      - training-pipeline
+    ports:
+      - "5001:5000"
+    volumes:
+      - "model-repo:/usr/src/myapp/models"
+  prediction_service:
+    image: indikakumara/predictionapi:0.0.1
+    depends_on:
+      - training_service
+    networks:
+      - prediction-pipeline
+    ports:
+      - "5002:5000"
+    volumes:
+      - "model-repo:/usr/src/myapp/models"
+  pgdb_server:
+    image: postgres:13.2
+    restart: always
+    environment:
+      - POSTGRES_USER=testuser
+      - POSTGRES_PASSWORD=testpass
+    networks:
+      - training-pipeline
+    ports:
+      - "5432:5432"
+    volumes:
+      - /home/indika_kuma/pgdata:/var/lib/postgresql/data
+
+  db_admin:
+    image: adminer
+    restart: always
+    networks:
+      - training-pipeline
+    ports:
+      - "8080:8080"
+
+networks:
+  training-pipeline:
+  prediction-pipeline:
+
+volumes:
+  model-repo:
