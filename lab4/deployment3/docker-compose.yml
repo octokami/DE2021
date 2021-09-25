@@ -1,7 +1,7 @@
 version: '3.8'
 services:
   trainingdb_service:
-    image: octokami/trainingdbapi:0.0.1
+    image: indikakumara/trainingdbapi:0.0.1
     environment:
       - DB_URL=sqlite:///features.db
     networks:
@@ -21,7 +21,7 @@ services:
     volumes:
       - "model-repo:/usr/src/myapp/models"
   prediction_service:
-    image: octokami/predictionapi:0.0.1
+    image: indikakumara/predictionapi:0.0.1
     depends_on:
       - training_service
     networks:
