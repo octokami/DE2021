@@ -25,7 +25,7 @@ services:
     depends_on:
       - training_service
     environment:
-      - MODEL_REPO=model_repo_de2021
+      - MODEL_REPO=cami_repo_de2021
       - PROJECT_ID=skilled-module-324608
     networks:
       - prediction-pipeline
