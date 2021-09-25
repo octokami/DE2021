@@ -14,7 +14,7 @@ services:
       - trainingdb_service
     environment:
       - TRAININGDB_API=http://trainingdb_service:5000/training-db/diabetes
-      - MODEL_REPO=model_repo_de2021
+      - MODEL_REPO=cami_repo_de2021
       - PROJECT_ID=skilled-module-324608
     networks:
       - training-pipeline
