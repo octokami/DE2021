@@ -11,7 +11,7 @@ COPY . .
 # Expose the port that our app runs in
 EXPOSE 5000
 # Enviroment Variables
-ENV PROJECT_ID=yourprojectidhere
+ENV PROJECT_ID=skilled-module-324608
 ENV MODEL_REPO=model_repo_de2021
 ENV TRAININGDB_API=http://training-db:5000/training-db/diabetes
 # Run our App
