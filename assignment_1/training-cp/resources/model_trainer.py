@@ -4,8 +4,11 @@ import logging
 import os
 
 from flask import jsonify
-from keras.layers import Dense
-from keras.models import Sequential
+## from keras.layers import Dense
+## from keras.models import Sequential
+
+import statsmodels.formula.api as smf
+import statsmodels.api as sm
 
 
 def train(dataset):
@@ -13,11 +16,14 @@ def train(dataset):
     X = dataset[:, 0:8]
     Y = dataset[:, 8]
     # define model
-    model = Sequential()
-    model.add(Dense(12, input_dim=8, activation='relu'))
-    model.add(Dense(8, activation='relu'))
-    model.add(Dense(1, activation='sigmoid'))
-    # compile model
+    ##model = Sequential()
+    ##model.add(Dense(12, input_dim=8, activation='relu'))
+    ##model.add(Dense(8, activation='relu'))
+    ##model.add(Dense(1, activation='sigmoid'))
+
+    model = smf.ols('SoldPrice ~ LstPrice', data=houses)
+
+    ## compile model
     model.compile(loss='binary_crossentropy', optimizer='adam', metrics=['accuracy'])
     # Fit the model
     model.fit(X, Y, epochs=150, batch_size=10, verbose=0)
