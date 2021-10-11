@@ -1,14 +1,27 @@
 {
-  "columns": [   
-    "ntp",
-    "pgc",
-    "dbp",
-    "tsft",
-    "si",
-    "bmi",
-    "dpf",
-    "age",
-    "class"
+  "columns": [ 
+                "ListNo",
+                "Access",
+                "Acres",
+                "AirType",
+                "Amenities",
+                "DaysOnMkt",
+                "Deck",
+                "GaragCap",
+                "Heat",
+                "Latitude",
+                "Longitude",
+                "LstPrice",
+                "Patio",
+                "PkgSpacs",
+                "PropType",
+                "Roof",
+                "SoldPrice",
+                "Taxes",
+                "TotBed",
+                "TotBth",
+                "TotSqf",
+                "YearBlt"
   ]
 }
 
