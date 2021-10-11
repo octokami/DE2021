@@ -4,12 +4,10 @@ import logging
 import os
 
 from flask import jsonify
-## from keras.layers import Dense
-## from keras.models import Sequential
-
 import statsmodels.formula.api as smf
 import statsmodels.api as sm
-
+from sklearn.model_selection import train_test_split
+from sklearn.linear_model import Ridge
 
 def train(dataset):
     # We drop Latitude and Longitude from the set as they do little to serve as predictors for price.
