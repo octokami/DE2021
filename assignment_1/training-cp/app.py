@@ -18,7 +18,7 @@ def train_models():
     r = requests.get(db_api)
     j = r.json()
     df = pd.DataFrame.from_dict(j)
-    resp = model_trainer.train(df.values)
+    resp = model_trainer.train(df)
     return resp
 
 
