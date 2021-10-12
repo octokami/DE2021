@@ -13,7 +13,7 @@ EXPOSE 5000
 # Enviroment Variables
 ENV MODEL_REPO=/usr/src/myapp/models
 #ENV TRAININGDB_API=http://training-db:5000/training-db/diabetes
-ENV TRAININGDB_API=http://datapp_api:5000/training-db/housing
+ENV TRAININGDB_API=http://datapp_api:5006/training-db/housing
 # Run our App
 CMD ["python3","app.py"]
 
