@@ -9,11 +9,11 @@ RUN pip install --no-cache-dir -r requirements.txt
 # Copy all files in training-db local host directory to /usr/src/myapp in Docker container
 COPY . .
 # Expose the port that our app runs in
-EXPOSE 5006
+EXPOSE 5000
 # Enviroment Variables
 ENV MODEL_REPO=/usr/src/myapp/models
 #ENV TRAININGDB_API=http://training-db:5000/training-db/diabetes
-ENV TRAININGDB_API=http://datapp_api:5006/db_preprocessing/housing
+ENV DB_API=http://datapp_api:5006/db_preprocessing/housing
 # Run our App
 CMD ["python3","app.py"]
 
