@@ -20,6 +20,6 @@ def predict(dataset):
         #dic = result.to_dict(orient='records')
         #dic = model_pred.to_dict()
         #text_out = {dic}
-        return jsonify('message': 'predicted samples'), 200
+        return jsonify({'message': 'predicted samples'}), 200
     else:
         return jsonify({'message': 'MODEL_REPO cannot be found.'}), 200
