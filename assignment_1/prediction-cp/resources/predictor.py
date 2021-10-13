@@ -14,9 +14,10 @@ def predict(dataset):
         model = pickle.load(open(file_path, 'rb'))
         val_set2 = dataset.copy()
         result = model.predict(dataset)
-        y_classes = result.argmax(axis=-1)
-        val_set2['class'] = y_classes.tolist()
-        dic = val_set2.to_dict(orient='records')
-        return jsonify(dic), 200
+        #y_classes = result.argmax(axis=-1)
+        #val_set2['class'] = y_classes.tolist()
+        #dic = val_set2.to_dict(orient='records')
+        text_out = {result}
+        return jsonify(text_out), 200
     else:
         return jsonify({'message': 'MODEL_REPO cannot be found.'}), 200
