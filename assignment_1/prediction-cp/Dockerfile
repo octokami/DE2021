@@ -12,6 +12,8 @@ COPY . .
 EXPOSE 5000
 # Enviroment Variables
 ENV MODEL_REPO=/usr/src/myapp/models
+
+ENV TRAINING=http://training:5000/training-cp/model
 # Run our App
 CMD ["python3","app.py"]
 
