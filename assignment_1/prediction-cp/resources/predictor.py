@@ -3,6 +3,7 @@ import os
 from flask import jsonify
 #from keras.models import load_model
 import pickle
+import numpy as np
 
 
 # make prediction
@@ -16,8 +17,9 @@ def predict(dataset):
         result = model.predict(dataset)
         #y_classes = result.argmax(axis=-1)
         #val_set2['class'] = y_classes.tolist()
-        dic = result.to_dict(orient='records')
+        #dic = result.to_dict(orient='records')
+        result.tolist()
         text_out = {dic}
-        return jsonify(text_out), 200
+        return json.dumps({result}), 200
     else:
         return jsonify({'message': 'MODEL_REPO cannot be found.'}), 200
