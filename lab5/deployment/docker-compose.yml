@@ -18,8 +18,8 @@ services:
     container_name: spark-driver-app
     user: root
     ports:
-      - "8888:8888"
-      - "4040:4040"
+      - "8888:8888" # Jupyter port
+      - "4040:4040" # Spark port
     environment:
       - JUPYTER_ENABLE_LAB=yes
     volumes:
@@ -38,8 +38,8 @@ services:
       - SPARK_DAEMON_MEMORY=2G
       - SPARK_MASTER_OPTS="-Dspark.deploy.defaultCores=1"
     ports:
-      - "8080:8080"
-      - "7077:7077"
+      - "8080:8080" 
+      - "7077:7077" 
     volumes:
       - spark-data:/home/jovyan/data
   spark-worker-1:
@@ -50,7 +50,7 @@ services:
       - spark-master
     environment:
       - SPARK_MODE=worker
-      - SPARK_MASTER_URL=spark://spark-master:7077
+      - SPARK_MASTER_URL=spark://spark-master:7077 # Same as container name
       - SPARK_WORKER_MEMORY=2G
       - SPARK_WORKER_CORES=1
       - SPARK_RPC_AUTHENTICATION_ENABLED=no
